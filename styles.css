@@ -1,299 +1,186 @@
-
-/********************* NOTES ************************
-The basic resets below allow you to create your own styling
-without having to fight some of the most annoying built in 
-agent user styles.
-****************************************************/
-
-/************* Basic Resets ***************/
-
-h1, h2, h3, h4, p, ul, ol, blockquote {
-	margin: 0;
-	padding: 0;
+/* Reset Styles */
+body, h1, h2, h3, h4, p, ul, ol, blockquote {
+  margin: 0;
+  padding: 0;
 }
 
 nav ul, nav ol {
-	list-style-type: none;
+  list-style: none;
 }
 
-/******** Additional resets *********/
-a { text-decoration:none; }
+a {
+  text-decoration: none;
+}
 
 img {
-	display: block;
-	max-width:100%; 
-	height: auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
-* { box-sizing: border-box; }
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
-/************ End CSS Reset  *************/
+/* Colors */
+:root {
+  --primary: #1a73e8;
+  --secondary: #f1f3f4;
+  --accent: #34a853;
+  --text-default: #202124;
+  --background: #ffffff;
+  --dark-bg: #121212;
+  --dark-text: #e8eaed;
+}
 
-
-/********************* NOTES ************************
-Below are the only colors I have used. Choose four new
-colors and do a find and replace to replace the hex codes.
-****************************************************/
-
-
-/*********** Colors ***********
-
-primary = #b5b5b5;
-secondary = #efefef;
-accent = #4574b5
-text default = #333333;
-
-
-********************************/
-
-
-/************* Basic Page Rules ************/
-
-
-/********************* NOTES ************************
-I set the background of the page to dark and the main
-font to Georgia for most of the type. The header font
-is set to Arial. You could get two fonts that work well
-together and replace these choices. You may have to adjust
-sizing and spacing as well.
-****************************************************/
-
-
+/* Base Styles */
 body {
-	font-family:Georgia;
-	color:#333;
-	background:#333;
+  font-family: "Roboto", sans-serif;
+  color: var(--text-default);
+  background: var(--background);
+  line-height: 1.6;
 }
 
-/************* typography ************/
-
-h1, h2, h3, h4, nav { 
-	font-family:Arial;
-	font-weight:bold; 
+h1, h2, h3, h4 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
 }
 
+a {
+  color: var(--primary);
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+/* Typography */
 h1 {
-	font-size:250%;
-	margin-bottom:1em;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 h2 {
-	font-size:170%;
-	margin-bottom:1em;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
-h3 { 
-	font-size:135%;
-	margin-bottom:1em;
+h3 {
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
 }
 
-h4 { 
-	font-size:115%;
-	margin-bottom:.5em;
+h4 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
 }
-	
 
 p {
-	line-height:1.5em;
-	margin-bottom:1em;
+  margin-bottom: 1rem;
 }
 
-a { color: #4574b5; }
+/* Buttons */
+button {
+  font-family: "Roboto", sans-serif;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
 
-.social { font-size:175%; }
+button:hover {
+  background: var(--accent);
+}
 
-.centered { text-align:center; }
-
-/****************** Grid ******************/
-
-.primary { background:#b5b5b5; }
-.secondary { background:#efefef; }
-
-
-/****************** Header and Main Navigation ****************/
+/* Layouts */
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
 header {
-	padding: 20px;
+  background: var(--primary);
+  color: #fff;
+  padding: 20px 0;
 }
 
 header .wrapper {
-	display: flex;
-	flex-direction: column-reverse;
-	flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.logo-container {
-	display: flex;
-	flex-direction: row-reverse;
-	justify-content: flex-end;
+header h1 {
+  color: #fff;
+  font-size: 1.5rem;
 }
 
-#logo {
-	margin-right:20px;
+nav ul {
+  display: flex;
+  gap: 20px;
 }
 
-
-#mainnav {
-	margin-bottom: 20px;
+nav ul li a {
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: background 0.3s;
 }
 
-#mainnav ul {
-	display: flex;
-	justify-content: center;
+nav ul li a:hover {
+  background: var(--accent);
 }
 
-#mainnav ul li a {
-	display:block;
-	color: #4574b5;
-	border-left: 2px solid #4574b5;
-	padding:0 20px;
-	font-size:20px;
+/* Section Styling */
+section {
+  padding: 40px 0;
 }
 
-/********************* NOTES ************************
-Removes the border on the first link...
-****************************************************/
-
-#mainnav ul li:first-of-type a {
-	border:none;
+.primary {
+  background: var(--primary);
+  color: #fff;
 }
 
-
-/***************** Section Specific Rules *****************/
-
-#work {
-	background:#fff;
-	padding: 20px;
+.secondary {
+  background: var(--secondary);
 }
 
-#work img, .additional-projects img {
-	width: 100%;
-	margin-bottom: 10px;
-}
-
-.featured, .projects, #page-template #work section {
-	margin-bottom: 40px;
-}
-
-#about-contact, .additional-projects {
-	padding: 20px;
-}
-
-#about-contact img {
-	margin-bottom: 10px;
-}
-
-/********************* NOTES ************************
-I added all this margin to the bottom of the footer so
-that when you click the link for "about" or "contact" in
-the main nav, there is room for them to go all the way to
-the top of the page.
-****************************************************/
-
+/* Footer */
 footer {
-	padding: 20px;
-	margin-bottom:600px;
+  background: var(--dark-bg);
+  color: var(--dark-text);
+  padding: 20px 0;
+  text-align: center;
 }
 
-@media only screen and (min-width: 650px) {
-	#work {
-		padding: 20px 10px;
-	}
-	
-	#work article, h2 {
-		padding: 0 10px;
-	}
-	
-	.projects, #page-template #work section  {
-		display: flex;
-		flex-wrap: wrap;
-	}
-	
-	.projects article, #page-template #work section article {
-		width: 50%;
-	}
-	
-	.additional-projects .wrapper{
-		display: flex;
-		flex-wrap: wrap;
-	}
-	
-	.additional-projects h2 {
-		flex-basis: 100%;
-	}
-	
-	.additional-projects article {
-		width: 50%;
-		padding: 0 10px;
-	}
-	
-	#about-contact {
-		padding: 0;
-	}
-	
-	#about-contact .wrapper {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: flex-start;
-		padding: 20px 10px;
-	}
-	
-	#about-contact .profile-photo {
-		flex: 1;
-		padding: 0 10px;
-		width: 100%;
-	}
-	
-	#about-contact article {
-		padding: 0 10px;
-	}
-	
-	#about-contact article:first-of-type {
-		flex: 2;
-	}
-	
-	#about-contact article:last-of-type {
-		flex-basis: 100%;
-	}
-	
+footer a {
+  color: var(--primary);
 }
 
-@media only screen and (min-width: 768px) {
-	
-	.featured {
-		display: flex;
-	}
-	
-	.featured article {
-		flex: 1;
-	}
-	
-	.additional-projects article {
-		width: 25%;
-	}
-	
-	#about-contact .wrapper {
-		flex-wrap: nowrap;
-	}
-	
-	#about-contact article:last-of-type {
-		flex: 2;
-		flex-basis: 0;
-	}
+/* Responsive Styles */
+@media (min-width: 768px) {
+  header .wrapper {
+    flex-direction: row;
+  }
+
+  nav ul {
+    gap: 30px;
+  }
+
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
 }
 
-@media only screen and (min-width: 1040px) {
-	.wrapper {
-		width: 1020px;
-		margin: auto;
-	}
-	
-	header .wrapper {
-		padding: 0 10px;
-	}
-	
-	/*Change the width here to 33% if you want three articles in a row*/
-	.projects article {
-		width: 25%;
-	}
+@media (min-width: 1024px) {
+  .projects {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
